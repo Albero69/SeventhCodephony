@@ -40,8 +40,8 @@ const char* const printNote[] PROGMEM = {
   "FA",
   "SI",
   "LA",
-  "REd",
-  "DOd"
+  "RE#",
+  "DO#"
 };
 
 // Array delle note della melodia, memorizzato in Flash
