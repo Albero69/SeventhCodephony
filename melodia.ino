@@ -11,13 +11,15 @@ struct Nota {
 
 // Definizione delle costanti per le durate delle note
 const uint16_t tono = 125;
-const uint16_t croma = tono * 2;
-const uint16_t croma_puntata = tono * 3;
-const uint16_t semiminima = tono * 4;
-const uint16_t semiminima_puntata = tono * 6;
-const uint16_t minima = tono * 8;
-const uint16_t minima_puntata = tono * 12;
-const uint16_t semibreve = tono * 16;
+const uint16_t semi_tono = tono / 2;
+const uint16_t croma = tono * 2; // 250
+const uint16_t croma_puntata = tono * 3; // 375
+const uint16_t semiminima = tono * 4; // 500
+const uint16_t semiminima_puntata = tono * 6; // 750
+const uint16_t minima = tono * 8; // 1000
+const uint16_t minima_puntata = tono * 12; // 1500
+const uint16_t semiminima_slegata = tono * 13; // 1500
+const uint16_t semibreve = tono * 16; // 2000
 
 // Definizione dei pin per le note
 const uint8_t pin_DO = 2;
@@ -31,7 +33,7 @@ const uint8_t pin_DOd = 9;
 
 const int8_t pausa = -1;
 
-const char* const printNote[] PROGMEM = {
+const String printNote[] = {
   "pin 1 null",
   "pin 1 null",
   "DO",
@@ -49,7 +51,8 @@ const Nota melodia[] PROGMEM = {
   // RIGA 1
   {pin_DO, semibreve },
 
-  {pin_SI, semibreve },
+  {pin_SI, semiminima_slegata },
+  {pausa, tono },
 
   {pin_SI, tono },
   {pin_DO, tono },
@@ -58,27 +61,35 @@ const Nota melodia[] PROGMEM = {
   {pin_SI, tono },
 
   {pin_RE, croma },
-  {pin_MI, croma },
-  {pin_MI, semiminima },
+  {pin_MI, tono },
+  {pausa, tono },
+  {pin_MI, croma_puntata },
+  {pausa, tono },
 
-  {pin_MI, semiminima_puntata },
+  {pin_MI, semiminima },
+  {pausa, tono },
   {pin_MI, tono },
   {pin_RE, tono },
 
-  {pin_RE, croma },
-  {pin_MI, croma },
-  {pin_MI, croma },
+  {pin_REd, croma },
+  {pin_MI, tono },
+  {pausa, tono },
+  {pin_MI, tono },
+  {pausa, tono },
   {pin_MI, croma },
 
   {pin_RE, tono },
   {pin_MI, tono },
   {pin_FA, semiminima_puntata },
   {pin_MI, tono },
-  {pin_RE, tono },
+  {pin_RE, semi_tono },
+  {pausa, semi_tono },
 
   {pin_RE, croma },
-  {pin_MI, croma },
-  {pin_MI, semiminima },
+  {pin_MI, tono },
+  {pausa, tono },
+  {pin_MI, croma_puntata },
+  {pausa, tono },
   
   // RIGA 2
   {pin_MI, semibreve },
@@ -93,7 +104,8 @@ const Nota melodia[] PROGMEM = {
   {pin_RE, tono },
 
   {pin_REd, croma },
-  {pin_DO, croma },
+  {pin_DO, tono },
+  {pausa, tono },
   {pin_DO, semiminima },
 
   {pin_RE, semibreve },
@@ -107,10 +119,12 @@ const Nota melodia[] PROGMEM = {
   {pin_DO, tono },
   {pin_SI, tono },
 
-  {pin_LA, croma },
+  {pin_LA, tono },
+  {pausa, tono },
   {pin_LA, tono },
   {pin_SI, tono },
-  {pin_DO, croma },
+  {pin_DO, tono },
+  {pausa, tono },
   {pin_DO, tono },
   {pin_RE, tono },
 
@@ -127,8 +141,10 @@ const Nota melodia[] PROGMEM = {
   {pin_RE, tono },
 
   {pin_REd, croma },
-  {pin_DO, croma },
-  {pin_DO, semiminima },
+  {pin_DO, tono },
+  {pausa, tono },
+  {pin_DO, croma_puntata },
+  {pausa, tono },
 
   {pin_DO, semibreve },
 
